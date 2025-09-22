@@ -3,18 +3,18 @@ using UnityEngine;
 public class Jogador : Personagem
 {
     private Animator _animator;
-    private bool IsRunning;
+    public bool IsRunning;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
-        IsRunning = false;
-        _animator.SetBool("IsRunning", IsRunning);
     }
 
 
     void Update()
     {
+        _animator.SetBool("IsRunning", IsRunning);
+        IsRunning = false;
         if (Input.GetKey(KeyCode.A)) //Esquerda
         {
             transform.position -= new Vector3(getVelocidade() * Time.deltaTime, 0, 0);

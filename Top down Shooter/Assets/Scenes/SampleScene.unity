@@ -702,6 +702,7 @@ MonoBehaviour:
   vidas: 0
   energia: 0
   velocidade: 1.5
+  IsRunning: 0
 --- !u!50 &714406258
 Rigidbody2D:
   serializedVersion: 5
