@@ -1,9 +1,12 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
     SpriteRenderer sprite;
+    public GameObject bullet;
+    public Transform Spawnbullet;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,6 +16,20 @@ public class GunController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        Aim();
+        Shoot();
+    }
+
+    void Shoot()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(bullet, Spawnbullet.position, transform.rotation);
+        }
+    }
+
+    void Aim()
     {
         Vector3 mousePos = Input.mousePosition;
         Vector3 screenPoint = Camera.main.WorldToScreenPoint(transform.position);
