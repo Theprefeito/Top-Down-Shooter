@@ -2,19 +2,8 @@ using UnityEngine;
 
 public class Inimigo : Personagem
 {
-    [SerializeField] private int dano = 1;
-
-    [SerializeField] private Transform posicaoDoPlayer;
     
-    public void setDano(int dano)
-    {
-        this.dano = dano;
-    }
-    public int getDano()
-    {
-        return this.dano;
-    }
-
+/*
     void Start()
     {
         if (posicaoDoPlayer == null)
@@ -34,11 +23,7 @@ public class Inimigo : Personagem
                 getVelocidade() * Time.deltaTime);
         }
         
-        if (getVidas() <= 0)
-        {
-            //desativa o objeto do Inimigo
-            gameObject.SetActive(false);
-        }
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -54,5 +39,5 @@ public class Inimigo : Personagem
             //desativa quando bate no player
             gameObject.SetActive(false);
         }
-    }
+    }*/
 }

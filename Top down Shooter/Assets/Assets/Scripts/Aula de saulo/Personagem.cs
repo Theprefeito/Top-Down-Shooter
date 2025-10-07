@@ -1,45 +1,41 @@
 using UnityEngine;
 
-public class Jogador : Personagem
+public class Personagem : MonoBehaviour
 {
-    private Animator _animator;
-    public bool IsRunning;
 
-    void Start()
+    [SerializeField] private int vidas;
+    [SerializeField] private int energia;
+
+
+    // vidas
+    public void setVidas(int Vidas)
     {
-        _animator = GetComponent<Animator>();
+        this.vidas = Vidas;
+    }
+
+    public int getVidas()
+    {
+        return this.vidas;
+    }
+
+    //energia
+    public void setEnergia(int energia)
+    {
+        this.energia = energia;
+    }
+
+    public int getEnergia()
+    {
+        return this.energia;
     }
 
 
-    void Update()
+    
+    public void recebeDano(int dano)
     {
-
-      
-      
-       _animator.SetBool("IsRunning", IsRunning);
-                IsRunning = false;
-                if (Input.GetKey(KeyCode.A)) //Esquerda
-                {
-                    transform.position -= new Vector3(getVelocidade() * Time.deltaTime, 0, 0);
-                    IsRunning = true;
-                }
-
-                if (Input.GetKey(KeyCode.D)) //Direita
-                {
-                    transform.position += new Vector3(getVelocidade() * Time.deltaTime, 0, 0);
-                    IsRunning = true;
-                }
-
-                if (Input.GetKey(KeyCode.W)) //Cima
-                {
-                    transform.position += new Vector3(0, getVelocidade() * Time.deltaTime, 0);
-                    IsRunning = true;
-                }
-
-                if (Input.GetKey(KeyCode.S)) //Baixo
-                {
-                    transform.position -= new Vector3(0, getVelocidade() * Time.deltaTime, 0);
-                    IsRunning = true;   
-                }
+        // atribui dano ao personagem
+        int novaVida = getVidas() - dano;
+        setVidas(novaVida);
     }
+    
 }

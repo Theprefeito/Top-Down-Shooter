@@ -5,6 +5,8 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     SpriteRenderer sprite;
+    AudioSource shootFx;
+
     public GameObject bullet;
     public Transform Spawnbullet;
 
@@ -12,6 +14,7 @@ public class GunController : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        shootFx = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class GunController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bullet, Spawnbullet.position, transform.rotation);
+            shootFx.Play();
         }
     }
 
