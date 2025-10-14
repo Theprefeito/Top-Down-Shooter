@@ -8,7 +8,7 @@ public class Personagem : MonoBehaviour
 
 
     // vidas
-    public void setVidas(int Vidas)
+   public void setVidas(int Vidas)
     {
         this.vidas = Vidas;
     }
@@ -31,7 +31,7 @@ public class Personagem : MonoBehaviour
 
 
     
-    public void recebeDano(int dano)
+    public void getDano(int dano)
     {
         // atribui dano ao personagem
         int novaVida = getVidas() - dano;

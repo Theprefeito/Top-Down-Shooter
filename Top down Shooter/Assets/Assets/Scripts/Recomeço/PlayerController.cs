@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Personagem
 {
@@ -22,13 +23,28 @@ public class PlayerController : Personagem
         transform.Translate(moveInput * Time.deltaTime * moveSpeed);
 
         _anim.SetBool("isRunning", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+        
+        if(getVidas() <= 0 )
+        {
+            Debug.Log("Jogador morreu!!!");
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+    
+    
+   
+
+   private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            int vidas = getVidas() - 1;
+            setVidas(vidas);
+            
         } 
+
     }
 }
