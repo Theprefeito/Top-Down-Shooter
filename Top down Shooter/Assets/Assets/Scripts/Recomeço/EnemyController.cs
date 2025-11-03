@@ -51,7 +51,7 @@ public class EnemyController : Personagem
 
         }
 
-        if (collision.gameObject.CompareTag( "Bullet"))
+        if (collision.gameObject.tag ==  "Bullet")
         {
             int novaVida = collision.gameObject.GetComponent<Personagem>().getVidas() - getDano();
             collision.gameObject.GetComponent<Personagem>().setVidas(novaVida);
